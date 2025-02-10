@@ -12,8 +12,8 @@ jobs:
       UV_CACHE_DIR: .uv-cache
       UV_LINK_MODE: copy
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           path: .uv-cache
           key: default
@@ -25,9 +25,3 @@ jobs:
       - run: uv pip install ruff -v
       # - run: ruff --version  # Not working for some reason...
       - run: uv cache prune --ci
-      
-      - if: success()
-        uses: actions/cache@v3
-        with:
-          path: .uv-cache
-          key: default
