@@ -19,6 +19,8 @@ jobs:
           key: default
   
       - run: pwd
+      - run: ls
+      - run: ls .uv-cache
       - run: pip install uv -q
       - run: uv venv
       - run: .venv\Scripts\activate
