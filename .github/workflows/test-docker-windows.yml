@@ -16,6 +16,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: .uv-cache
+          key: default
   
       - run: pwd
       - run: pip install uv -q
@@ -29,3 +30,4 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .uv-cache
+          key: default
