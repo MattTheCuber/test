@@ -21,7 +21,7 @@ jobs:
       - run: pwd
       - run: ls
       - run: ls .uv-cache
-      - run: pip install uv -q
+      - run: pip install uv==0.5.29 -q
       - run: uv venv
       - run: .venv\Scripts\activate
       - run: uv pip install ruff -v
