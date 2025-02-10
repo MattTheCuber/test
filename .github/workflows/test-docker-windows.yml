@@ -1,0 +1,24 @@
+name: test-docker-windows
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: windows-latest
+    container:
+      image: python:3.11-windowsservercore
+    env:
+      UV_CACHE_DIR: .uv-cache
+      UV_LINK_MODE: copy
+    steps:
+      - uses: actions/checkout@v3
+      - run: pwd
+      - run: pip install uv -q
+      - run: uv venv
+      - run: .venv\Scripts\activate
+      - run: uv pip install ruff -v
+      - run: ruff --version
+      - run: uv cache prune --ci
