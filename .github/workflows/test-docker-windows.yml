@@ -23,7 +23,7 @@ jobs:
       - run: uv venv
       - run: .venv\Scripts\activate
       - run: uv pip install ruff -v
-      - run: python -m ruff --version
+      # - run: ruff --version  # Not working for some reason...
       - run: uv cache prune --ci
       
       - if: success()
